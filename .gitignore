@@ -95,4 +95,4 @@ fabric.properties
 hs_err_pid*
 
 .idea/
-ex1-hello-jpa/src/main/resources/META-INF/
+persistence-bak.xml
