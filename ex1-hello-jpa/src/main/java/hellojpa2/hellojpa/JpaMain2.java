@@ -1,7 +1,5 @@
 package hellojpa2.hellojpa;
 
-import hellojpa.Member;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,6 +15,26 @@ public class JpaMain2 {
         tx.begin();
 
         try {
+
+
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member2 member2 = new Member2();
+            member2.setUsername("member1");
+            member2.changeTeam(team);
+            em.persist(member2);
+
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member2> members = findTeam.getMembers(); //(members가 null이다.)
+
+            System.out.println("================");
+            for(Member2 m : members){
+                System.out.println("members = " + m.getUsername());
+            }
+            System.out.println("================");
+
 
             tx.commit();
         } catch (Exception e) {
