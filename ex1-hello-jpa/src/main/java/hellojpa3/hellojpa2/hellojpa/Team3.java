@@ -1,7 +1,5 @@
-package hellojpa2.hellojpa;
+package hellojpa3.hellojpa2.hellojpa;
 
-import hellojpa.Member;
-import hellojpa3.hellojpa2.hellojpa.Member3;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,13 +10,14 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Team {
+public class Team3 {
     @Id
     @GeneratedValue
     @Column(name="team_id")
     private Long id;
     private String name;
-
-    @OneToMany(mappedBy = "team")
-    private List<Member2> members = new ArrayList<Member2>();
+//
+//    @OneToMany(mappedBy = "team")
+//    @JoinColumn(name = "team_id")
+//    private List<Member3> members = new ArrayList<Member3>();
 }
