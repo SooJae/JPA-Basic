@@ -1,11 +1,9 @@
 package hellojpa3.hellojpa;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class JpaMain3 {
     public static void main(String[] args) {
@@ -17,9 +15,29 @@ public class JpaMain3 {
 
         try {
 
-            Member3 member = new Member3();
-            member.setCreatedBy("soo");
-            member.setCreatedDate(LocalDateTime.now());
+            Team3 team3 = new Team3();
+            team3.setName("SOOTEAM");
+            em.persist(team3);
+
+            Team3 team4 = new Team3();
+            team4.setName("soojae2");
+            em.persist(team4);
+
+            Member3 member3 = new Member3();
+            member3.setUsername("hello");
+            member3.setTeam(team3);
+            em.persist(member3);
+
+            Member3 member4 = new Member3();
+            member4.setUsername("hello");
+            member4.setTeam(team4);
+            em.persist(member4);
+
+
+            em.flush();
+            em.clear();
+
+            List<Member3> members = em.createQuery("select m from Member3 m join fetch m.team", Member3.class).getResultList();
 
 
             tx.commit();
@@ -31,11 +49,4 @@ public class JpaMain3 {
         emf.close();
     }
 
-    private static Member3 saveMember(EntityManager em) {
-        Member3 member = new Member3();
-        member.setUsername("member1");
-
-        em.persist(member);
-        return member;
-    }
 }

@@ -20,9 +20,9 @@ public class Member3 extends BaseEntity3 {
     @Column(name="username")
     private String username;
 
-    @OneToOne
-    @JoinColumn(name = "locker_id")
-    private Locker3 locker;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="team_id")
+    private Team3 team;
 
     @OneToMany(mappedBy = "member")
     private List<MemberProduct3> memberProducts = new ArrayList<>();
