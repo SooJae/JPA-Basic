@@ -1,16 +1,14 @@
-package hellojpa3.hellojpa2.hellojpa;
+package hellojpa3.hellojpa;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
-public class Team3 {
+public class Team3 extends BaseEntity3 {
     @Id
     @GeneratedValue
     @Column(name="team_id")
@@ -20,4 +18,7 @@ public class Team3 {
 //    @OneToMany(mappedBy = "team")
 //    @JoinColumn(name = "team_id")
 //    private List<Member3> members = new ArrayList<Member3>();
+
+
+
 }

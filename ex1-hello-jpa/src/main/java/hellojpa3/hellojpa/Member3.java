@@ -1,4 +1,4 @@
-package hellojpa3.hellojpa2.hellojpa;
+package hellojpa3.hellojpa;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Member3 {
+public class Member3 extends BaseEntity3 {
 
     @Id
     @GeneratedValue
@@ -25,7 +25,7 @@ public class Member3 {
     private Locker3 locker;
 
     @OneToMany(mappedBy = "member")
-    private List<Product3> memberProducts = new ArrayList<Product3>();
+    private List<MemberProduct3> memberProducts = new ArrayList<>();
 
 
 

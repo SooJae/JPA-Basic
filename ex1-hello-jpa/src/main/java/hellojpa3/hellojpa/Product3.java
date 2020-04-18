@@ -1,9 +1,10 @@
-package hellojpa3.hellojpa2.hellojpa;
+package hellojpa3.hellojpa;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,5 +18,6 @@ public class Product3 {
     private String name;
 
     @OneToMany(mappedBy = "product")
-    private List<MemberProduct3> members = new ArrayList<MemberProduct3>();
+    private List<MemberProduct3> members = new ArrayList<>();
+
 }

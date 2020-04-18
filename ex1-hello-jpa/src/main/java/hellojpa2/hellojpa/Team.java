@@ -1,7 +1,5 @@
 package hellojpa2.hellojpa;
 
-import hellojpa.Member;
-import hellojpa3.hellojpa2.hellojpa.Member3;
 import lombok.Getter;
 import lombok.Setter;
 

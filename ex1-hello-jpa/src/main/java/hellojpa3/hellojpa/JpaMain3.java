@@ -1,12 +1,11 @@
-package hellojpa3.hellojpa2.hellojpa;
+package hellojpa3.hellojpa;
 
-import hellojpa2.hellojpa.Team;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
+import java.time.LocalDateTime;
 
 public class JpaMain3 {
     public static void main(String[] args) {
@@ -18,13 +17,10 @@ public class JpaMain3 {
 
         try {
 
-            Member3 member = saveMember(em);
+            Member3 member = new Member3();
+            member.setCreatedBy("soo");
+            member.setCreatedDate(LocalDateTime.now());
 
-            Team3 team = new Team3();
-            team.setName("teamA");
-//            team.getMembers().add(member);
-
-            em.persist(team);
 
             tx.commit();
         } catch (Exception e) {

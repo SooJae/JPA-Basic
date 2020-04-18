@@ -1,4 +1,4 @@
-package hellojpa3.hellojpa2.hellojpa;
+package hellojpa3.hellojpa;
 
 public enum RoleType3 {
     USER, ADMIN
