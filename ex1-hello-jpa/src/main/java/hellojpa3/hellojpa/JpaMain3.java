@@ -14,31 +14,12 @@ public class JpaMain3 {
         tx.begin();
 
         try {
+            Member3 member = new Member3();
+            member.setUsername("soojkae");
+            member.setHomeAddress(new Address("city", "street", "1000"));
+            member.setWorkPeriod(new Period());
 
-            Team3 team3 = new Team3();
-            team3.setName("SOOTEAM");
-            em.persist(team3);
-
-            Team3 team4 = new Team3();
-            team4.setName("soojae2");
-            em.persist(team4);
-
-            Member3 member3 = new Member3();
-            member3.setUsername("hello");
-            member3.setTeam(team3);
-            em.persist(member3);
-
-            Member3 member4 = new Member3();
-            member4.setUsername("hello");
-            member4.setTeam(team4);
-            em.persist(member4);
-
-
-            em.flush();
-            em.clear();
-
-            List<Member3> members = em.createQuery("select m from Member3 m join fetch m.team", Member3.class).getResultList();
-
+            em.persist(member);
 
             tx.commit();
         } catch (Exception e) {
